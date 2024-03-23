@@ -1,9 +1,10 @@
 import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { HiOutlineCurrencyDollar } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
-  const { logo, job_title, company_name, remote_or_onsite, location,job_type,salary,job_description,job_responsibility,educational_requirements,experiences} = job;
+  const { logo, job_title, company_name, remote_or_onsite, location,job_type,salary, id} = job;
   return (
     <div className="card card-compact w-full bg-base-100 shadow-xl">
       <figure>
@@ -24,7 +25,9 @@ const Job = ({ job }) => {
             <h2 className="flex"><HiOutlineCurrencyDollar className="text-xl mr-2" />{salary}</h2>
         </div>
         <div className="card-actions">
-          <button className="btn btn-primary">View Details</button>
+          <Link to={`/job/${id}`}>
+              <button className="btn btn-primary">View Details</button>
+          </Link>
         </div>
       </div>
     </div>
